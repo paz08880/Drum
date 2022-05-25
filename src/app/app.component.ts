@@ -1,3 +1,5 @@
+import { ISound } from './models/sound.interface';
+import { SoundService } from './service/sound.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Drum';
+  title = 'מערכת נגינה';
+
+  public drumKit: Array<ISound>;
+
+  constructor(private SoundService: SoundService){
+    this.drumKit = this.SoundService.getDrumKit();
+  }
 }
